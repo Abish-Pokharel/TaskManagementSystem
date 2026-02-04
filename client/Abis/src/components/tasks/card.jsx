@@ -3,18 +3,18 @@ import { BsFillPinAngleFill } from 'react-icons/bs'
 import { FaTrash } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 
-const Card = () => {
+const Card = ({task}) => {
   return (
     <div className='border border-gray-300 py-3 px-4 rounded-md shadow flex flex-col gap-3'>
         <div className='flex justify-between'>
-            <p className='text-lg font-bold text-gray-800'>Task</p>
+            <p className='text-lg font-bold text-gray-800'>{task.title}</p>
             <BsFillPinAngleFill size={20} className='text-gray-500' />
         </div>
-        <div className='bg-yellow-600 w-25 rounded-md text-center text-white font-bold text-sm py-0.5'>
-            High
+        <div className={`${task.priority === 'high' ? 'text-red-500' : task.priority === 'medium' ? 'text-yellow-500' : 'text-green-500'} font-semibold`}>
+            {task.priority}
         </div>
         <div className='flex flex-col gap-1'>
-            <p className='text-[18px] font-semibold text-gray-500 line-clamp-1'>Task Title</p>
+            <p className='text-[18px] font-semibold text-gray-500 line-clamp-1'>{task.text}</p>
         </div>
         <p className='text-[14px] text-gray-600'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse amet ipsa nisi deserunt incidunt mollitia.</p>
         <div className='flex justify-end gap-2 mt-1'>
