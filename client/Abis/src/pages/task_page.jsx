@@ -2,7 +2,7 @@
 import React from "react"
 import TaskForm from "../components/forms/task_form"
 
-const TaskPage = ({onClose}) =>{
+const TaskPage = ({onClose, type, data}) =>{
     return (
         <main className="h-full w-full py-10">
            <div className="shadow-md py-3 px-4 min-h-120 min-w-120 rounded-md ">
@@ -10,7 +10,7 @@ const TaskPage = ({onClose}) =>{
                 <h1 className="text-3xl font-bold">Create Task</h1>
                 
             </div>            
-                <TaskForm onClose={onClose} />               
+                <TaskForm data = {data} type = {type} onClose={onClose} />               
            </div>
         </main>
     )

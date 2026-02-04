@@ -58,7 +58,7 @@ const Homepage = () => {
           <IoMdAdd size={25} className='font-bold' />
         </button>
         <Modal className={'w-[40%] h-fit mx-auto mt-16'} isOpen={modalState.isOpen} onRequestClose={onClose} style={{overlay: {backgroundColor: 'rgba(0, 0, 0, 0.5)'}}}>
-        <TaskPage onClose={onClose}/>
+        <TaskPage data = {modalState.data} type = {modalState.type} onClose={onClose}/>
         </Modal>
 
     </main>

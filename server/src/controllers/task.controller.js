@@ -1,13 +1,13 @@
 import Task from "../models/task_model.js";
 
 export const create_task = async (req, res, next) => {
+
   try {
-    let { title, text, priority, user , pinned } = req.body;
+    const user = req.user.id;
+    let { title, text, priority , pinned } = req.body;
     if (!title) throw new Error("Title is required");
     if (!text) throw new Error("Task text is required");
     if (!priority) throw new Error("Priority is required");
-    if (!user) throw new Error("User is required");
-    if (!pinned) throw new Error("Pinned is required");
     priority = priority.toLowerCase()
     const task = await Task.create({
       title,
